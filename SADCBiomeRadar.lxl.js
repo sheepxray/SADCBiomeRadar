@@ -1,7 +1,8 @@
 //LiteXLoader Dev Helper
 /// <reference path="c:\/Library/JS/Api.js" /> 
-var configVersion = 1.0
-var version = 1.0
+
+var Version = "v1.0"
+var configVersion = "v1.0"
 let DefaultLang = {
     "ConfigReadError":"配置文件读取出错！",
 	"Update_config": "检测到配置文件非{configVersion}的版本，已重置配置项",
@@ -33,9 +34,13 @@ function Read(){
         configstand = JSON.parse(configtemp)
     }
 }
-
-
-
+read()
+//重置文件详情
+function setcongfig(){
+    let datatemp = {"配置文件版本号": configVersion, "自动更新": true}
+    let datastand = JSON.stringify(datatemp, null, "\t")
+    file.writeTo("plugins/SADCBiomeRadar/config.json",datastand)
+}
 
 
 
