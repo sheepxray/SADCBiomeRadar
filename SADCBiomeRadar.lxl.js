@@ -25,8 +25,12 @@ function Read(){
             setconfig()
             configtemp = file.readFrom("plugins\\SADCBiomeRadar\\config.json")
             configstand = JSON.parse(configtemp)
-            
         }
+    }
+    else{
+        setconfig()
+        configtemp = file.readFrom("plugins\\SADCBiomeRadar\\config.json")
+        configstand = JSON.parse(configtemp)
     }
 }
 
