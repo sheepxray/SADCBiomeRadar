@@ -1,24 +1,34 @@
 //LiteXLoader Dev Helper
 /// <reference path="c:\/Library/JS/Api.js" /> 
-
+var configVersion = 1.0
+var version = 1.0
 let DefaultLang = {
-	"Get_Money": "§2击杀奖励§6{num}§2{money_name}",
-	"Lang_Error": "读取语言文件出错！",
-	"Cannot_Get_Money": "§b您在§e1小时§b内无法再从此生物中获取{money_name}!",
-	"Debug_Killed": "§b[SADCHunter]您杀死了§e{mob_name}",
-	"Config_Error": "您的config.json配置异常，已重置",
-	"Config_Error_2": "您的mobs.json配置异常，已重置",
+    "ConfigReadError":"配置文件读取出错！",
 	"Update_config": "检测到配置文件非{configVersion}的版本，已重置配置项",
 	"Get_NewVersion": "获取到云端版本{version_lastest}，正在更新...",
 	"Get_NewVersion_Error": "获取最新版本异常",
 	"UpdatePlugin_Successful": "自动更新成功",
 	"UpdatePlugin_Error": "自动更新异常",
-	"DegbugCommandText": "获取杀死怪物的标准类型名",
-	"Debug_Open": "§b[SADCHunter]您打开了此功能",
-	"Debug_Close": "§b[SADCHunter]您关闭了此功能",
-	"Debug_Help": "§b[SADCHunter]提示\n/getmobid true-打开获取怪物类型名功能\n/getmobid false-关闭获取怪物类型名功能"
+	"Debug_Open": "§b[SADCBiomeRadar]您打开了此功能",
+	"Debug_Close": "§b[SADCBiomeRadar]您关闭了此功能",
+}//配置文件生存
+function Read(){
+    let create = file.createDir("plugins/SADCbiomeRadar")
+    let EXST = file.exists("plugins/SADCBiomeRadar/config.json")
+    if(EXST){
+        try {
+            configtemp = file.readFrom("plugins\\SADCBiomeRadar\\config.json")
+            configstand = JSON.parse(configtemp)
+        }
+        catch(err){
+            log(DefaultLang.ConfigReadError)
+            setconfig()
+            configtemp = file.readFrom("plugins\\SADCBiomeRadar\\config.json")
+            configstand = JSON.parse(configtemp)
+            
+        }
+    }
 }
-
 
 
 
