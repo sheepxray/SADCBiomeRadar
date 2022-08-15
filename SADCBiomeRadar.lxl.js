@@ -42,15 +42,13 @@ function setcongfig(){
     file.writeTo("plugins/SADCBiomeRadar/config.json",datastand)
 }
 
-
-
-if (traab["自动更新"] == true) {
-	network.httpGet('https://gitee.com/sheepxray/SADCHunter/raw/master/version.json', function (st, dat) {
+if (configstand["自动更新"] == true) {
+	network.httpGet('https://gitee.com/sheepxray/SADCBiomeRadar/raw/master/version.json', function (st, dat) {
 		if (st == 200) {
 			let version_lastest = JSON.parse(dat).version
 			if (version_lastest != Version) {
 				log(lang.Get_NewVersion.replace("{version_lastest}", version_lastest))
-				network.httpGet('https://gitee.com/sheepxray/SADCHunter/raw/master/SADCHunter.lxl.js', function (st2, dat2) {
+				network.httpGet('https://gitee.com/sheepxray/SADCHunter/raw/master/SADCBiomeRadar.lxl.js', function (st2, dat2) {
 					if (st2 == 200) {
 						let plugin = dat2.replace(/\r/g, '');
 						file.writeTo("plugins/SADCHunter.js", plugin)
