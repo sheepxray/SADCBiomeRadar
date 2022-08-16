@@ -1,6 +1,7 @@
 //LiteXLoader Dev Helper
 /// <reference path="c:\/Library/JS/Api.js" /> 
 
+ll.registerPlugin(Fast_Find_Special_Biome,[1,0,0])
 var Version = "v1.0"
 var configVersion = "v1.0"
 let DefaultLang = {
@@ -12,7 +13,7 @@ let DefaultLang = {
 	"UpdatePlugin_Error": "自动更新异常",
 	"Debug_Open": "§b[SADCBiomeRadar]您打开了此功能",
 	"Debug_Close": "§b[SADCBiomeRadar]您关闭了此功能",
-}//配置文件生存
+}//配置文件生成
 function Read(){
     let create = file.createDir("plugins/SADCbiomeRadar")
     let EXST = file.exists("plugins/SADCBiomeRadar/config.json")
@@ -66,3 +67,7 @@ if (configstand["自动更新"] == true) {
 		}
 	})
 }
+//注册指令
+mc.newCommand(Radar,判断脚底下是否有指定方块)
+
+mc.listen("onPlayerCmd",(player:player,cmd:Radar))
