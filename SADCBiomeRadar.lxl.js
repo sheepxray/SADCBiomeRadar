@@ -70,4 +70,4 @@ if (configstand["自动更新"] == true) {
 //注册指令
 mc.newCommand(Radar,判断脚底下是否有指定方块)
 
-mc.listen("onPlayerCmd",(player:player,cmd:Radar))
+mc.listen("onPlayerCmd",(player:player,cmd:Radar)=>Boolean)
